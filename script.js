@@ -89,5 +89,4 @@ async function remove(id) {
   render();
 }
 
-// Запуск
 loadTodos();
