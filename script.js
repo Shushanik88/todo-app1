@@ -5,7 +5,6 @@ const input = document.getElementById("todo-input");
 
 let todos = [];
 
-// Загружаем ToDo с сервера или из LocalStorage
 async function loadTodos() {
   try {
     const res = await fetch(API_URL);
@@ -19,7 +18,6 @@ async function loadTodos() {
   render();
 }
 
-// Отображаем список задач
 function render() {
   list.innerHTML = "";
   todos.forEach((todo) => {
@@ -40,7 +38,6 @@ function render() {
   });
 }
 
-// Добавление новой задачи
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const title = input.value.trim();
@@ -65,7 +62,6 @@ form.addEventListener("submit", async (e) => {
   render();
 });
 
-// Изменение состояния (завершено/нет)
 async function toggle(id) {
   const todo = todos.find((t) => t.id === id);
   todo.isCompleted = !todo.isCompleted;
@@ -82,7 +78,6 @@ async function toggle(id) {
   render();
 }
 
-// Удаление задачи
 async function remove(id) {
   todos = todos.filter((t) => t.id !== id);
 
